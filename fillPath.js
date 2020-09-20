@@ -10,7 +10,7 @@ function floodFill(original_x, original_y, fillColor) {
             oldIterations = iterations
         } else {
             clearInterval(interval)
-            // fillBlack(fillColor)
+            fillBlack(fillColor)
         }
     }, 500);
 }
@@ -23,8 +23,7 @@ function fillBlack(colorToKeep) {
 
             setTimeout(() => {
                 let color = getRgbFromPosition(x, y)
-
-                if (!isColorMatching(colorToKeep, color, 0)) {
+                if (!isColorMatching(colorToKeep, color, 50)) {
                     setColorAtPosition(x, y, {
                         r: 0,
                         g: 0,
@@ -37,7 +36,7 @@ function fillBlack(colorToKeep) {
     }
 }
 
-let tolerenceValue = 30
+let tolerenceValue = 50
 let iterations = 0
 
 function setNeighboursColor(x, y, color, clickedColor) {
