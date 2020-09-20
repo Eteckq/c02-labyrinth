@@ -23,7 +23,7 @@ function fillBlack(colorToKeep) {
 
             setTimeout(() => {
                 let color = getRgbFromPosition(x, y)
-                if (!isColorMatching(colorToKeep, color, 50)) {
+                if (!isColorMatching(colorToKeep, color, 0)) {
                     setColorAtPosition(x, y, {
                         r: 0,
                         g: 0,
@@ -84,10 +84,9 @@ function setColorAtPosition(x, y, {
     g,
     b
 }) {
-
+    ctx.clearRect(x, y, 1, 1)
     ctx.fillStyle = "rgba(" + r + "," + g + "," + b + ",1)";
     ctx.fillRect(x, y, 1, 1);
-
 }
 
 function getRgbFromPosition(x, y) {
