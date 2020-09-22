@@ -21,7 +21,7 @@ var loadedImage
 function drawImage(width, height) {
     var canvas = document.getElementById('canvas');
     var ctx = canvas.getContext('2d');
-    canvas.width = width;
+    canvas.width = width*2+30;
     canvas.height = height;
 
     ctx.imageSmoothingQuality = "low";

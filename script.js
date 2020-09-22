@@ -4,7 +4,7 @@ var ctx = canvas.getContext("2d");
 canvas.addEventListener("mousedown", function (e) {
     ctx = canvas.getContext("2d");
     let coord = getMousePosition(canvas, e);
-    floodFill(coord.x, coord.y, hexToRgbA('#ff0000'))
+    createHitBox(coord.x, coord.y, hexToRgbA('#ff0000'))
     // flood_fill(coord.x, coord.y, '#ff2e1f')
 });
 
