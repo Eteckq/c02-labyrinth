@@ -1,33 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
+<html>
+  <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <title>CO²</title>
-</head>
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <title>Hello World!</title>
+  </head>
+  <body>
+    <h1>Hello World!</h1>
+    We are using Node.js <span id="node-version"></span>,
+    Chromium <span id="chrome-version"></span>,
+    and Electron <span id="electron-version"></span>.
 
-<body>
-
-    <div>
-        <input type="file" id="fileinput" accept="image/*">
-        <ul>
-            <li>Uploader une image</li>
-            <li>Cliquer dans un chemin (par exemple vers le start)</li>
-            <li>Attendre la génération du labyrinthe</li>
-        </ul>
-    </div>
-
-
-
-    <canvas id="canvas"></canvas>
-
-
-</body>
-
-<script src="fillPath.js"></script>
-<script src="uploadFile.js"></script>
-<script src="script.js"></script>
-
+    <!-- You can also require other files to run in this process -->
+    <script src="./renderer.js"></script>
+  </body>
 </html>
