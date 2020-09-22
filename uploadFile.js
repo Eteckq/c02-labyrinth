@@ -10,7 +10,7 @@ fileInput.change(function (ev) {
             image.src = e.target.result;
             image.onload = function (ev) {
                 loadedImage = image
-                drawImage(image.width/3, image.height/3)
+                drawImage(image.width, image.height)
             }
         }
     }
