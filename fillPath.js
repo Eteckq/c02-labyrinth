@@ -1,7 +1,22 @@
 function floodFill(original_x, original_y, fillColor) {
     let clickedColor = getRgbFromPosition(original_x, original_y)
 
-    setColorAtPosition(original_x, original_y, fillColor)
+    for (let x = 0; x < canvas.width; x++) {
+        for (let y = 0; y < canvas.height; y++) {
+            setTimeout(() => {
+                let pixel = getRgbFromPosition(x, y)
+
+            if(isColorMatching(pixel, clickedColor, 50)){
+                setColorAtPosition(x, y, fillColor)
+            }
+            }, 0);
+        }
+        
+    }
+
+    fillBlack(fillColor)
+
+    /* setColorAtPosition(original_x, original_y, fillColor)
     setNeighboursColor(original_x, original_y, fillColor, clickedColor)
 
     let oldIterations = 0
@@ -12,7 +27,7 @@ function floodFill(original_x, original_y, fillColor) {
             clearInterval(interval)
             fillBlack(fillColor)
         }
-    }, 500);
+    }, 500); */
 }
 
 function fillBlack(colorToKeep) {
