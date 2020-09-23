@@ -1,4 +1,6 @@
 fileInput = $("#fileinput")
+let tailleSlider = $("#tailleSlider")
+let tailleImg = tailleSlider.value
 
 fileInput.change(function (ev) {
     if (ev.target.files) {
@@ -24,7 +26,7 @@ function drawImage(width, height) {
     canvas.width = width;
     canvas.height = height;
 
-    
+
     var canvasRes = document.getElementById('canvas-resultat');
     canvasRes.width = width;
     canvasRes.height = height;

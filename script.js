@@ -2,6 +2,7 @@ var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 
 let toleranceSlider = $("#toleranceSlider")
+
 var coordClicked
 
 canvas.addEventListener("mousedown", function (e) {

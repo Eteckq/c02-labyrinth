@@ -18,8 +18,8 @@
       <h2>Etapes à suivre :</h2>
       <ul>
         <li>Uploader une image</li>
-        <li>Choisir une tolérance (selon le scan) et cliquer dans un chemin (par exemple vers le start)</li>
-        <li>Attendre la génération du labyrinthe</li>
+        <li>Ajuster la taille de l'image et la tolérance puis cliquer dans un chemin (par exemple vers le start)</li>
+        <li>La taille et la tolérance peuvent ensuite être modifiées en direct</li>
       </ul>
     </div>
 
@@ -30,6 +30,13 @@
     <div>
       <label for="toleranceSlider">Tolérance [0 - 255]</label>
       <input type="range" min="0" max="255" value="30" id="toleranceSlider">
+      <div>
+        Taille de l'image
+        <div class="d-flex flex-column bd-highlight">
+          <button id="agrandirImg" type="button" class="btn btn-dark rounded-pill" style="width: 50px;" onclick="drawImage(canvas.width * 1.2, canvas.height * 1.2)">&uArr;</button>
+          <button id="reduireImg" type="button" class="btn btn-secondary rounded-pill" style="width: 50px;" onclick="drawImage(canvas.width * 0.8, canvas.height * 0.8)">&dArr;</button>
+        </div>
+      </div>
     </div>
   </div>
 
