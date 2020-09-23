@@ -1,12 +1,22 @@
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 
+let toleranceSlider = $("#toleranceSlider")
+var coordClicked
+
 canvas.addEventListener("mousedown", function (e) {
     ctx = canvas.getContext("2d");
-    let coord = getMousePosition(canvas, e);
-    createHitBox(coord.x, coord.y, hexToRgbA('#ff0000'))
+    coordClicked = getMousePosition(canvas, e);
+    createHitBox(coordClicked.x, coordClicked.y, toleranceSlider.val())
     // flood_fill(coord.x, coord.y, '#ff2e1f')
 });
+
+
+
+toleranceSlider.on('change',function(val){
+    let tolerance = $(this).val()
+    createHitBox(coordClicked.x, coordClicked.y, tolerance)
+})
 
 function hexToRgbA(hex){
     var c;
