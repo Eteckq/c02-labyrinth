@@ -1,22 +1,24 @@
 {
-  "name": "electron-quick-start",
+  "name": "co2-labyrinth",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "Labyrinthe game generator",
   "main": "main.js",
+  "productName": "C0² Generator",
+  "author": "Yohan",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
-  "repository": "https://github.com/electron/electron-quick-start",
-  "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
-  ],
-  "author": "GitHub",
-  "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^10.1.2"
+    "electron": "^10.1.2",
+    "electron-packager": "^15.1.0",
+    "electron-builder": "^22.8.1"
+  },
+  "build": {
+    "appId": "yohan.app"
+  },
+  "dependencies": {
+    
   }
 }
