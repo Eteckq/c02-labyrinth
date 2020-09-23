@@ -28,19 +28,8 @@
       <input type="file" id="fileinput" accept="image/*" label="test">
     </div>
     <div>
-      <label for="tolerance">Tolérance [0 - 255]</label>
-      <input type="range" min="1" max="255" value="20" step="1" id="tolerance" list="graduation">
-      <datalist id="graduation">
-        <option value="0" label="0">
-        <option value="32">
-        <option value="64">
-        <option value="96">
-        <option value="128" label="128">
-        <option value="160">
-        <option value="192">
-        <option value="224">
-        <option value="255" label="255">
-      </datalist>
+      <label for="toleranceSlider">Tolérance [0 - 255]</label>
+      <input type="range" min="0" max="255" value="30" id="toleranceSlider">
     </div>
   </div>
 
