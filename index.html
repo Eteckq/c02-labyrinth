@@ -13,9 +13,11 @@
 
   <div>
     <input type="file" id="fileinput" accept="image/*">
+    <label for="tolerance">Tolérance</label>
+    <input type="range" min="1" max="255" value="20" id="tolerance">
     <ul>
       <li>Uploader une image</li>
-      <li>Cliquer dans un chemin (par exemple vers le start)</li>
+      <li>Choisir une tolérance (selon le scan) et cliquer dans un chemin (par exemple vers le start)</li>
       <li>Attendre la génération du labyrinthe</li>
     </ul>
   </div>

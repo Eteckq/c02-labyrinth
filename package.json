@@ -18,7 +18,5 @@
   "build": {
     "appId": "yohan.app"
   },
-  "dependencies": {
-    
-  }
+  "dependencies": {}
 }
