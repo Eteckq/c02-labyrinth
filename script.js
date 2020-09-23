@@ -2,21 +2,25 @@ var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 
 let toleranceSlider = $("#toleranceSlider")
+let colorPicker = $("#colorPicker")
 
 var coordClicked
 
 canvas.addEventListener("mousedown", function (e) {
     ctx = canvas.getContext("2d");
     coordClicked = getMousePosition(canvas, e);
-    createHitBox(coordClicked.x, coordClicked.y, toleranceSlider.val())
+    createHitBox(coordClicked.x, coordClicked.y, toleranceSlider.val(), colorPicker.val())
     // flood_fill(coord.x, coord.y, '#ff2e1f')
 });
 
 
 
 toleranceSlider.on('change',function(val){
-    let tolerance = $(this).val()
-    createHitBox(coordClicked.x, coordClicked.y, tolerance)
+  createHitBox(coordClicked.x, coordClicked.y, toleranceSlider.val(), colorPicker.val())
+})
+
+colorPicker.on('change',function(val){
+  createHitBox(coordClicked.x, coordClicked.y, toleranceSlider.val(), colorPicker.val())
 })
 
 function hexToRgbA(hex){
