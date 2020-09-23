@@ -7,27 +7,61 @@
   <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
   <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'"> -->
   <title>CO²</title>
+  <!-- Bootstrap CSS -->
+  <link href="lib/bootstrap-4.5.2-dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
 
-  <div>
-    <input type="file" id="fileinput" accept="image/*">
-    <label for="tolerance">Tolérance</label>
-    <input type="range" min="1" max="255" value="20" id="tolerance">
-    <ul>
-      <li>Uploader une image</li>
-      <li>Choisir une tolérance (selon le scan) et cliquer dans un chemin (par exemple vers le start)</li>
-      <li>Attendre la génération du labyrinthe</li>
-    </ul>
+  <div class="d-flex p-2 flex-row bd-highlight justify-content-around align-items-center">
+    <div>
+      <h2>Etapes à suivre :</h2>
+      <ul>
+        <li>Uploader une image</li>
+        <li>Choisir une tolérance (selon le scan) et cliquer dans un chemin (par exemple vers le start)</li>
+        <li>Attendre la génération du labyrinthe</li>
+      </ul>
+    </div>
+
+    <div>
+      <label for="fileinput">choisir un fichier : </label>
+      <input type="file" id="fileinput" accept="image/*" label="test">
+    </div>
+    <div>
+      <label for="tolerance">Tolérance [0 - 255]</label>
+      <input type="range" min="1" max="255" value="20" step="1" id="tolerance" list="graduation">
+      <datalist id="graduation">
+        <option value="0" label="0">
+        <option value="32">
+        <option value="64">
+        <option value="96">
+        <option value="128" label="128">
+        <option value="160">
+        <option value="192">
+        <option value="224">
+        <option value="255" label="255">
+      </datalist>
+    </div>
   </div>
 
+  <hr>
 
-
-  <canvas id="canvas"></canvas>
-  <canvas id="canvas-resultat"></canvas>
+  <div class="d-flex p-2 flex-row bd-highlight justify-content-around align-items-center">
+    <div>
+      <h3 class="mx-auto" style="width: 300px;">Image d'origine</h3>
+      <canvas class="border border-primary p-3" id="canvas"></canvas>
+    </div>
+    <div>
+      <h3 class="mx-auto" style="width: 300px;">Hitbox générées</h3>
+      <canvas class="border border-success p-3" id="canvas-resultat"></canvas>
+    </div>
+  </div>
 
   <!-- You can also require other files to run in this process -->
+  <!-- jQuery link -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
   <script src="./renderer.js"></script>
   <script src="jquery.js"></script>
   <script src="createHitBox.js"></script>

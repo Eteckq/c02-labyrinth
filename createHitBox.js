@@ -1,6 +1,6 @@
 function createHitBox(original_x, original_y) {
     let clickedColor = getRgbFromPosition(original_x, original_y)
-    let image = ctx.getImageData(0, 0, canvas.width/2-15, canvas.height)
+    let image = ctx.getImageData(0, 0, canvas.width, canvas.height)
     let toleranceSlider = document.getElementById("tolerance");
 
     console.log(image.data.length) // Recup val pour taille du for
@@ -17,7 +17,9 @@ function createHitBox(original_x, original_y) {
       }
     }
 
-    ctx.putImageData(image, canvas.width/2+15, 0);
+    let canvasResultat = document.getElementById('canvas-resultat');
+    let ctxResultat = canvasResultat.getContext('2d');
+    ctxResultat.putImageData(image, 0, 0);
 }
 
 function isColorMatching(color1, color2, tolerance) {
