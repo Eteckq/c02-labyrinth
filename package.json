@@ -4,7 +4,7 @@
   "description": "Labyrinthe game generator",
   "main": "main.js",
   "productName": "C0² Generator",
-  "author": "Yohan",
+  "author": "Mr FONTENAS",
   "scripts": {
     "start": "electron .",
     "pack": "electron-builder --dir",
