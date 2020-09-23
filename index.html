@@ -1,16 +1,37 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <title>CO²</title>
-  </head>
-  <body>
-    
 
-    <!-- You can also require other files to run in this process -->
-    <script src="./renderer.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+  <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+  <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'"> -->
+  <title>CO²</title>
+</head>
+
+<body>
+
+  <div>
+    <input type="file" id="fileinput" accept="image/*">
+    <ul>
+      <li>Uploader une image</li>
+      <li>Cliquer dans un chemin (par exemple vers le start)</li>
+      <li>Attendre la génération du labyrinthe</li>
+    </ul>
+  </div>
+
+
+
+  <canvas id="canvas"></canvas>
+  <canvas id="canvas-resultat"></canvas>
+
+  <!-- You can also require other files to run in this process -->
+  <script src="./renderer.js"></script>
+  <script src="jquery.js"></script>
+  <script src="createHitBox.js"></script>
+  <script src="uploadFile.js"></script>
+  <script src="script.js"></script>
+
+</body>
+
 </html>
