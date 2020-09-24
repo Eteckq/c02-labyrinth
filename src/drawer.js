@@ -31,7 +31,7 @@ class Drawer {
         this.ctxInput.drawImage(image, 0, 0, image.width, image.height);
     }
 
-    setClickedPoint(x, y) {
+    setClickedPoint({x,y}) {
         this.clickedPoint = {
             x,
             y
@@ -82,9 +82,13 @@ class Drawer {
 
     getClickedColor() {
         return this.getRgbFromPosition(this.clickedPoint.x, this.clickedPoint.y)
+
     }
 
     getRgbFromPosition(x, y) {
+      console.log(x)
+      console.log(y)
+
         let data = this.ctxInput.getImageData(x, y, 1, 1).data
         return {
             r: data[0],
