@@ -1,6 +1,3 @@
-
-
-
 let toleranceSlider = $("#toleranceSlider")
 let colorPicker = $("#colorPicker")
 
@@ -33,8 +30,8 @@ colorPicker.on('change', function (val) {
     drawer.createHitBox()
 })
 
-function init(){
+function init() {
     let canvasInput = document.getElementById("canvasInput")
-let canvasOutput = document.getElementById("canvasOutput")
+    let canvasOutput = document.getElementById("canvasOutput")
     drawer = new Drawer(canvasInput, canvasOutput)
 }

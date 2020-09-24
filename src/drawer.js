@@ -26,7 +26,7 @@ class Drawer {
         this.canvasOutput.height = image.height;
 
         // this.ctxInput = canvasInput.getContext("2d");
-    
+
         // this.ctxInput.imageSmoothingQuality = "low";
         this.ctxInput.drawImage(image, 0, 0, image.width, image.height);
     }
@@ -47,20 +47,24 @@ class Drawer {
     }
 
     createHitBox() {
-        let clickedColor = {r: 200, g: 200, b: 200} /* this.getClickedColor() */
+        let clickedColor = this.getClickedColor() /* {r: 200, g: 200, b: 200} */
         let fillColor = hexToRgbA(this.pathColor)
         let image = this.getInputCanvasData()
 
-        let backColor = {r: 0, g:0, b: 0}
+        /* let backColor = {
+            r: 0,
+            g: 0,
+            b: 0
+        } */
 
         for (let i = 0; i < image.data.length; i += 4) {
             let currentColor = {
                 r: image.data[i],
                 g: image.data[i + 1],
-                b: image.data[i+ 2]
+                b: image.data[i + 2]
             }
             if (!isColorMatching(clickedColor, currentColor, this.tolerance)) {
-                image .data[i] = 0;
+                image.data[i] = 0;
                 image.data[i + 1] = 0;
                 image.data[i + 2] = 0;
                 // fillColorInData(image.data, backColor, i)
@@ -81,7 +85,6 @@ class Drawer {
     }
 
     getRgbFromPosition(x, y) {
-        console.log("coords:",x,y);
         let data = this.ctxInput.getImageData(x, y, 1, 1).data
         return {
             r: data[0],
@@ -94,7 +97,7 @@ class Drawer {
         return this.ctxInput.getImageData(0, 0, this.canvasInput.width, this.canvasInput.height)
     }
 
-    
+
 
 }
 
@@ -104,25 +107,25 @@ function isColorMatching(color1, color2, tolerance) {
         Math.abs(color1.b - color2.b) <= tolerance
 }
 
-function hexToRgbA(hex){
+function hexToRgbA(hex) {
     var c;
-    if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
-        c= hex.substring(1).split('');
-        if(c.length== 3){
-            c= [c[0], c[0], c[1], c[1], c[2], c[2]];
+    if (/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)) {
+        c = hex.substring(1).split('');
+        if (c.length == 3) {
+            c = [c[0], c[0], c[1], c[1], c[2], c[2]];
         }
-        c= '0x'+c.join('');
+        c = '0x' + c.join('');
 
         return {
-            r: (c>>16)&255,
-            g: (c>>8)&255,
-            b: c&255
+            r: (c >> 16) & 255,
+            g: (c >> 8) & 255,
+            b: c & 255
         }
     }
 }
 
-function fillColorInData(data, color, gap){
-    let decalage = gap*4
+function fillColorInData(data, color, gap) {
+    let decalage = gap * 4
     data[decalage] = color.r;
     data[decalage + 1] = color.g;
     data[decalage + 2] = color.b;
