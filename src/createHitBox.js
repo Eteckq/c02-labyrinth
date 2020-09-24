@@ -30,6 +30,7 @@ function isColorMatching(color1, color2, tolerance) {
 }
 
 function getRgbFromPosition(x, y) {
+    console.log("coords:",x,y);
     let data = ctx.getImageData(x, y, 1, 1).data
     return {
         r: data[0],

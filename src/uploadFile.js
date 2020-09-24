@@ -20,17 +20,17 @@ fileInput.change(function (ev) {
 
 var loadedImage
 
-function drawImage(width, height) {
+function drawImage(image) {
     var canvas = document.getElementById('canvas');
     var ctx = canvas.getContext('2d');
-    canvas.width = width;
-    canvas.height = height;
+    canvas.width = image.width;
+    canvas.height = image.height;
 
 
     var canvasRes = document.getElementById('canvas-resultat');
-    canvasRes.width = width;
-    canvasRes.height = height;
+    canvasRes.width = image.width;
+    canvasRes.height = image.height;
 
     ctx.imageSmoothingQuality = "low";
-    ctx.drawImage(loadedImage, 0, 0, width, height);
+    ctx.drawImage(image, 0, 0, image.width, image.height);
 }
