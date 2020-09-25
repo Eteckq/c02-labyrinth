@@ -51,11 +51,12 @@ class Drawer {
         let fillColor = hexToRgbA(this.pathColor)
         let image = this.getInputCanvasData()
 
-        /* let backColor = {
+        let backColor = {
             r: 0,
             g: 0,
-            b: 0
-        } */
+            b: 0,
+            a: 0
+        }
 
         for (let i = 0; i < image.data.length; i += 4) {
             let currentColor = {
@@ -67,6 +68,7 @@ class Drawer {
                 image.data[i] = 0;
                 image.data[i + 1] = 0;
                 image.data[i + 2] = 0;
+                image.data[i + 3] = 0;
                 // fillColorInData(image.data, backColor, i)
 
             } else {
@@ -123,7 +125,8 @@ function hexToRgbA(hex) {
         return {
             r: (c >> 16) & 255,
             g: (c >> 8) & 255,
-            b: c & 255
+            b: c & 255,
+            a: 1
         }
     }
 }
@@ -133,7 +136,7 @@ function fillColorInData(data, color, gap) {
     data[decalage] = color.r;
     data[decalage + 1] = color.g;
     data[decalage + 2] = color.b;
-    data[decalage + 3] = 1;
+    data[decalage + 3] = color.a;
 }
 
 function getMousePosition(canvas, event) {
