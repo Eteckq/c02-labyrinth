@@ -79,7 +79,7 @@ class Drawer {
             }
         }
 
-        this.canvasOutput.getContext("2d").putImageData(image, 0, 0);
+        this.ctxOutput.putImageData(image, 0, 0);
     }
 
     getClickedColor() {
