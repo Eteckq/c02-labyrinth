@@ -6,6 +6,7 @@ class Drawer {
         this.ctxInput = canvasInput.getContext("2d");
         this.ctxOutput = canvasOutput.getContext("2d");
 
+        this.image = 0
         this.pathColor = "#ff0000"
         this.tolerance = 30
         this.clickedPoint = {
@@ -25,10 +26,29 @@ class Drawer {
         this.canvasOutput.width = image.width;
         this.canvasOutput.height = image.height;
 
+        if(!this.image) {
+          this.image = image;
+        }
+
         // this.ctxInput = canvasInput.getContext("2d");
 
         // this.ctxInput.imageSmoothingQuality = "low";
         this.ctxInput.drawImage(image, 0, 0, image.width, image.height);
+    }
+
+    zoom(val) {
+        // Mise à jour de la taille du canvas & de l'image
+          this.canvasInput.width = this.canvasInput.width*val;
+          this.canvasInput.height = this.canvasInput.height*val;
+          this.canvasOutput.width = this.canvasOutput.width*val;
+          this.canvasOutput.height = this.canvasOutput.height*val;
+          this.image.width = this.image.width*val;
+          this.image.height = this.image.height*val;
+
+        // this.ctxInput = canvasInput.getContext("2d");
+
+        // this.ctxInput.imageSmoothingQuality = "low";
+        this.ctxInput.drawImage(this.image, 0, 0, this.image.width, this.image.height);
     }
 
     setClickedPoint({x,y}) {
